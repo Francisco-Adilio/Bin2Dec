@@ -1,17 +1,17 @@
 function converter() {
-    var binario = document.querySelector("#binario").value.split('')
-    var decimal = document.querySelector("#decimal")
+    var binary = document.querySelector("#binary").value.split('')
+    document.querySelector("#decimal").value
 
-    var soma = 0
     for(var i = 0; i <= binario.length; i++) {
-    soma += binario[i]
-        if(soma > binario.length || binario.length > 8) {
-            alert('Para funcionar coloque até 8 digitos de 0 e 1')
+        if(binary[i] > 1 || binary.length > 8) {
+            alert('Enter an 8-digit number with only 0 and 1')
+            break
         } else {
+            var values = 0
             for(var i = 0; i <= binario.length; i++) {
-                var valores = 0
-                valores = 2 ** i * binario[i] + valores
+                values = 2 ** i * binary[i] + values
             }
+            console.log(values)
         }
-    } 
+    }
 }
