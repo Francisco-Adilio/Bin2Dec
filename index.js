@@ -1,17 +1,29 @@
+addEventListener("input", () => {
+    converter()
+})
+
 function converter() {
-    var binary = document.querySelector("#binary").value.split('')
-    document.querySelector("#decimal").value
+    var binario = document.querySelector("#binario").value.split('').reverse()
+    var boolean
 
     for(var i = 0; i <= binario.length; i++) {
-        if(binary[i] > 1 || binary.length > 8) {
-            alert('Enter an 8-digit number with only 0 and 1')
+        if(binario[i] > 1) {
+            alert('Para funcionar coloque apenas algorismos de 0 e 1')
+            document.querySelector("#binario").value = ''
+            document.querySelector("#decimal").value = ''
+            boolean = false
             break
         } else {
-            var values = 0
-            for(var i = 0; i <= binario.length; i++) {
-                values = 2 ** i * binary[i] + values
+            var valores = 0
+            for(var i = 0; i < binario.length; i++) {
+                valores = 2 ** i * binario[i] + valores
             }
-            console.log(values)
+            boolean = true
         }
+        break
+    }
+
+    if(boolean) {
+        document.querySelector("#decimal").value = valores
     }
 }
